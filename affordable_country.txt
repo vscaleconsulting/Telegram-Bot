@@ -1,0 +1,1 @@
+[{"response": "1", "country": "PT", "service": "opt4", "price": "0.16"}, {"response": "1", "country": "FI", "service": "opt4", "price": "0.20"}, {"response": "1", "country": "ES", "service": "opt4", "price": "0.16"}, {"response": "1", "country": "SE", "service": "opt4", "price": "0.16"}]
