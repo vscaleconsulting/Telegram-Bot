@@ -5,7 +5,7 @@ import pytesseract
 from pytesseract import Output
 from tqdm import tqdm
 import pandas as pd
-from scrapers.clients import *
+from scrapers import *
 from config import *
 import re
 

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     with open('session_ids.csv') as f:
         str_sessions_tuple = list()
         lines = f.readlines()
-        for line in lines[1:]:
+        for line in lines[1:]: 
             x = line.split(',')
             str_sessions_tuple.append((x[-2].rstrip().replace(' ', ''), x[-1].rstrip()))
     ph_dict = dict(str_sessions_tuple)
