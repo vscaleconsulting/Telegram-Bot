@@ -5,7 +5,6 @@ from config import api_id,api_hash
 from telethon.sessions import StringSession
 import spintax
 
-message = "Hi {}, {} you're an admin for {} group! {} ask you a question as I was really curious? Can I ask It?"
 
 def get_sessions(filename):
     sessions = list()
@@ -55,27 +54,27 @@ if __name__ =='__main__':
     s_len = len(sessions) 
     
     iter_session = 1
-    for group in telegram_groups[1:]:       
+    for grp in telegram_groups[1:]:       
         
         if iter_session==s_len:
             iter_session = 1
         
         bot = TGClient(StringSession(sessions[iter_session]),api_id,api_hash)
-        admins = bot.get_admins(group=group)
-
+        admins = bot.get_admins(group="test125879")
+        print(len(admins))
         for admin in admins:     
-            
+            message = "Hi {}, {} you're an admin for {} group! {} ask you a question as I was really curious? Can I ask It?"
             admin_name = admin.first_name
-            group_name = group
-            
+            group_name = grp
+    
             arg1 = "{noticed|just saw}"
             arg2 = "{I wanted to|so i thought to reach out to you as i would like to}"
             message = message.format(admin_name,arg1,group_name,arg2)
             
             message = spintax.spin(message)
             bot.send_message(admin,message)
-            print("sended message")
-            
+            print(f"sended message to {admin_name} of {group_name}")
+           
         iter_session+=1
 
    
