@@ -5,6 +5,8 @@ from config import api_id,api_hash
 from telethon.sessions import StringSession
 import spintax
 
+message = "Hi {}, {} you're an admin for {} group! {} ask you a question as I was really curious? Can I ask It?"
+
 def get_sessions(filename):
     sessions = list()
     with open(filename,encoding='utf8') as f:
@@ -59,7 +61,7 @@ if __name__ =='__main__':
             iter_session = 1
         
         bot = TGClient(StringSession(sessions[iter_session]),api_id,api_hash)
-        admins = bot.get_admins(group="test125879")
+        admins = bot.get_admins(group=group)
 
         for admin in admins:     
             
