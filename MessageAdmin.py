@@ -13,7 +13,7 @@ def get_sessions(filename):
         for row in reader:
             sessions.append(row[-1])
     
-    return sessions
+    return sessions[1:]
 
 def ask_args():
     campaign_file = str(input("Campaign FileName: "))

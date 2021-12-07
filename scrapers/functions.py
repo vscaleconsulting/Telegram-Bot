@@ -15,7 +15,7 @@ from multiprocessing import Process, Manager
 from telethon.tl.patched import Message
 
 
-def get_data(start=1, limit=5000, batch_size=900):
+def get_data(start=1, limit=5000, batch_size=900,__json=False):
     """Get Crptocoin Data
 
     Args:
@@ -54,6 +54,8 @@ def get_data(start=1, limit=5000, batch_size=900):
         size += batch_size
 
         data = json.loads(response.text)
+        if(__json):
+            return data
         data = pd.DataFrame(data=data['data'])
         data = data.transpose()
 
