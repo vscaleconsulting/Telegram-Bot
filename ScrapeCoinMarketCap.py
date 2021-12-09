@@ -95,12 +95,11 @@ if __name__=='__main__':
         if telegram_url==None:
             continue
         
-        grp_name = coin["name"][0]
+        grp_name = coin["name"]
         symbol = coin["symbol"]
         description = coin["description"]
         website = coin["urls"]["website"][0]
         telegram_chat = telegram_url
-        print(telegram_chat)
         admins = get_admins(session_list[session_id],telegram_chat)
     
         if(admins==None): # if a group doent contain any non bot admin
