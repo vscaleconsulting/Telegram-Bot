@@ -1,6 +1,4 @@
 #! C:\Users\kosha\AppData\Local\Programs\Python\Python39\python.exe
-
-
 from telethon.sessions import StringSession
 import argparse
 from config import *
@@ -13,7 +11,7 @@ if __name__ == '__main__':
     args = parser.parse_known_args()[1]
 
     if len(args):
-        ph_no = args[0]
+        ph_no = args[0] 
     else:
         ph_no = input('Enter number: ')
     with open('session_ids.csv') as f:

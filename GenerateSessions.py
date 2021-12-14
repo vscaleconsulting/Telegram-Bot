@@ -93,7 +93,7 @@ if __name__=='__main__':
     file = open("session_ids.csv","a",encoding='utf8',newline="")
     session_name = None
     try:
-        for i in range(5):
+        for i in range(40):
             session_name = f"botsession_{random.randint(0,10000)}{random.randint(0,10000)}"
             get_number()
             client = get_client(session_name)
