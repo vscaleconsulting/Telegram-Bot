@@ -292,8 +292,10 @@ class TGClient:
         with self.client as client:
             pass
 
-    def get_session_str(self):
-         return StringSession.save(self.client.session)
+    def get_session_str(self,get_str=False):
+        if(get_str):
+            return self.client.session
+        return StringSession.save(self.client.session)
 
     def is_restricted(self):
         self.send_message('@SpamBot', '/start')

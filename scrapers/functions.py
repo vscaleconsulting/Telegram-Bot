@@ -29,7 +29,7 @@ def get_data(start=1, limit=5000, batch_size=900,__json=False):
     if batch_size > 950 or start < 1 or limit > 5000:
         raise ValueError
 
-    url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start={start}&limit={limit}&convert=USD&CMC_PRO_API_KEY=016f8cff-67ed-4a55-8073-a7fa5232ca31"
+    url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start={start}&limit={limit}&convert=USD&CMC_PRO_API_KEY=b85e274a-623a-4630-8703-7a10dc7533a9"
     headers = {
         'Cookie': '__cfduid=d80d94e8b91c6e501ef97b018900ee5161618654054'
     }
