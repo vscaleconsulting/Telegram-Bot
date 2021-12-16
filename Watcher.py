@@ -19,9 +19,12 @@ if __name__ == '__main__':
         lines = f.readlines()
         for line in lines[1:]:
             x = line.split(',')
-            str_sessions_tuple.append((x[-2].rstrip().replace(' ', ''), x[-1].rstrip()))
+            try:
+                str_sessions_tuple.append((x[-2].rstrip().replace(' ', ''), x[-1].rstrip()))
+            except:
+                continue
+            
     ph_dict = dict(str_sessions_tuple)
-    print(ph_dict)
     str_session_id = ph_dict[ph_no.rstrip().replace(' ', '')]
     try:
         str_session_id = ph_dict[ph_no]
@@ -29,7 +32,6 @@ if __name__ == '__main__':
         print('Invalid Number')
         exit()
 
-    print(str_session_id)
     cl = TGClient(StringSession(str_session_id), api_id, api_hash)
     forwards = list()
 
