@@ -60,6 +60,7 @@ def get_number():
         return 
     
     response_text = r.text
+    print(response_text)
     split = response_text.split(":")
     phone,phone_id = split[-1],split[-2]
     return phone,phone_id
@@ -89,21 +90,21 @@ def get_code():
     return None
 
 if __name__=='__main__':
-
+    print("ds")
     file = open("session_ids.csv","a",encoding='utf8',newline="")
     session_name = None
-    try:
-        for i in range(40):
-            session_name = f"botsession_{random.randint(0,10000)}{random.randint(0,10000)}"
-            get_number()
-            client = get_client(session_name)
-            send_code(phone,client)
-            code = get_code()
-            if(code!=None):
-                print(code)
-                create_account(phone,client,code)
-                session_saver(client,phone,file)
-            time.sleep(3)
-        file.close()
-    except:
-        file.close()
+    
+    for i in range(40): 
+        session_name = f"botsession_{random.randint(0,10000)}{random.randint(0,10000)}"
+        get_number()
+        client = get_client(session_name)
+        send_code(phone,client)
+        code = get_code()
+        if(code!=None):
+            print(code)
+            create_account(phone,client,code)
+            session_saver(client,phone,file)
+        time.sleep(3)
+    file.close()
+    
+    # file.close()

@@ -39,7 +39,7 @@ async def order_for_account():
                               'Stella', 'Aurora', 'Emilia', 'Everly', 'Leah', 'Aubrey', 'Willow', 'Addison',
                               'Lucy', 'Audrey', 'Bella']
 
-                lname_list = ['(VSCALE)']
+                lname_list = ['(VSCALE)'] 
                 dm_imgs = ['dm_img1.jpg', 'dm_img2.png', 'dm_img3.png', 'dm_img4.png']
                 fname_pick_index = random.randint(0, len(fname_list) - 1)
                 lname_pick_index = random.randint(0, len(lname_list) - 1)
