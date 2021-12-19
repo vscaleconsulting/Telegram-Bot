@@ -11,7 +11,7 @@ if __name__ == '__main__':
     parser.add_argument("num_files", help="number of files to generate", type=int, nargs='?')
     args = parser.parse_args()
 
-    if 'newSplits' not in os.listdir():
-        os.mkdir('newSplits')
+    if 'splits' not in os.listdir():
+        os.mkdir('splits')
 
-    split_csv('newCampaign.csv', start=args.start, lines=args.lines, num_files=args.num_files, dest='newSplits/')
+    split_csv('Campaign.csv', start=args.start, lines=args.lines, num_files=args.num_files, dest='splits/')

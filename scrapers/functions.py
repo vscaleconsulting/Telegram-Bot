@@ -36,7 +36,7 @@ def get_data(start=1, limit=5000, batch_size=900,__json=False):
     response = requests.request("GET", url, headers=headers, data={})
 
     assert response.status_code == 200
-
+    print(response.text)
     data = json.loads(response.text)
     df = pd.DataFrame(data=data['data'])
     ids = df['id'].tolist()
@@ -56,10 +56,11 @@ def get_data(start=1, limit=5000, batch_size=900,__json=False):
         data = json.loads(response.text)
         if(__json):
             return data
-        data = pd.DataFrame(data=data['data'])
-        data = data.transpose()
+        else:
+            data = pd.DataFrame(data=data['data'])
+            data = data.transpose()
 
-        dfs.append(data.copy())
+            dfs.append(data.copy())
 
     ret = pd.concat(dfs, ignore_index=True)
     return ret
