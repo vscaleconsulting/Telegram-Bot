@@ -62,6 +62,8 @@ def get_number():
     response_text = r.text
     print(response_text)
     split = response_text.split(":")
+    if(len(split)!=2):
+        return False #no number was found or credits exceeded
     phone,phone_id = split[-1],split[-2]
     return phone,phone_id
     
@@ -96,7 +98,8 @@ if __name__=='__main__':
     
     for i in range(40): 
         session_name = f"botsession_{random.randint(0,10000)}{random.randint(0,10000)}"
-        get_number()
+        if(not get_number()):
+            continue 
         client = get_client(session_name)
         send_code(phone,client)
         code = get_code()

@@ -35,6 +35,9 @@ if __name__ =='__main__':
     telegram_groups = list()
     campaign_file = open(campaign_file_loc,encoding='utf8')
     csvreader = csv.reader(campaign_file)
+    
+    
+    
     for row in csvreader:
         link = row[5]
         try:
@@ -74,7 +77,7 @@ if __name__ =='__main__':
             message = spintax.spin(message)
             bot.send_message(admin,message)
             print(f"sended message to {admin_name} of {group_name}")
-           
+            
         iter_session+=1
 
    
