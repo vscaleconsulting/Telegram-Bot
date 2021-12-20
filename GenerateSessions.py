@@ -92,7 +92,7 @@ def get_code():
     return None
 
 if __name__=='__main__':
-    print("ds")
+
     file = open("session_ids.csv","a",encoding='utf8',newline="")
     session_name = None
     
