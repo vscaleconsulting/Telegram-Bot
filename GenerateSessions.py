@@ -8,7 +8,7 @@ import random
 
 phone = None
 phone_id = None
-api_key = "8523df0c683b0fAe45fc166f698c5e3e"
+api_key = ""
 
 
 def cancel_activation():
