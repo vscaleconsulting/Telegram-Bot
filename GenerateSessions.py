@@ -8,7 +8,7 @@ import random
 
 phone = None
 phone_id = None
-api_key = "8523df0c683b0fAe45fc166f698c5e3e"
+api_key = ""
 
 
 def cancel_activation():
@@ -36,8 +36,8 @@ def send_code(phone,client):
     try:
         client.send_code_request(phone)
     except Exception as e:
-        print(e)
-        cancel_activation()
+        print("number was banned canceling activation")
+        return "ban"
         
 def create_account(phone,client,code):
     try:
@@ -54,7 +54,7 @@ def get_number():
     global phone_id
     global api_key
     
-    r = requests.get(f"https://sms-activate.ru/stubs/handler_api.php?api_key={api_key}&action=getNumber&service=tg&freePrice=true&maxPrice=10")
+    r = requests.get(f"https://sms-activate.ru/stubs/handler_api.php?api_key={api_key}&action=getNumber&service=tg&country=22")
 
     if(r.status_code!=200):
         print("no numbers available")
@@ -63,7 +63,8 @@ def get_number():
     response_text = r.text
     print(response_text)
     split = response_text.split(":")
-    if(len(split)!=2):
+    if(len(split)!=3):
+        print("no got")
         return False #no number was found or credits exceeded
     phone,phone_id = split[-1],split[-2]
     return phone,phone_id
