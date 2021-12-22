@@ -329,6 +329,7 @@ def split_csv(csv, start, lines, num_files=None, dest=''):
         d = df[start:start + lines]
         name = f'{csv[:-4]}_split_{j + x}.csv'
         d.to_csv(dest + name, index=False)
+        
         csv_data = csv_data.append({'file_name': name, 'status': False}, ignore_index=True)
         j += 1
         start += lines
