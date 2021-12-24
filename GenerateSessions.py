@@ -17,7 +17,7 @@ def cancel_activation():
     r = requests.get(f"https://api.sms-activate.org/stubs/handler_api.php?api_key={api_key}&action=setStatus&status=8&id={phone_id}")
     if(r.text=="ACCESS_CANCEL"):
         return True
-    raise ""
+    
     return False
     
     
