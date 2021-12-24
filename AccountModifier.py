@@ -36,10 +36,6 @@ def get_new_face()->list:
     page_counter = 0 #page number to retrive, since output is not random , to make it ranadom changing the page number
     face_urls = list()
     
-    # with open("AccountModifierCounter.txt","r",encoding="utf8") as f:
-    #     page_counter = int(f.readline(1))
-    # with open("AccountModifierCounter.txt","w",encoding="utf8") as f:
-    #     f.write(f"{page_counter+1}")
     
     r = requests.get(f"https://api.generated.photos/api/v1/faces?gender=female",headers={"Authorization":f"API-Key {api_key}"})
     data = json.loads((r.content).decode("utf-8"))
@@ -60,7 +56,8 @@ def generate_name():
         i+=1 
 
 if __name__=='__main__':
-    print("he")name_gen = generate_name()
+ 
+    name_gen = generate_name()
     
     sessions = get_sessions('session_ids.csv')
     faces = get_new_face()
@@ -72,7 +69,7 @@ if __name__=='__main__':
             name = name_gen.__next__()
             image = f"/images/{image_counter+1}.jpg"
             client.update_picture(image)
-            client.update_profile(name[0],"(VSCALE)","SENIOR CONSULTANT 👉🏻 @vscaleconsulting 👈🏻")
+            client.update_profile(f"{name[0]} | WealthMonks","(VSCALE)","SENIOR CONSULTANT 👉🏻 @vscaleconsulting 👈🏻")
             image_counter+=1
             if(image_counter==6):
                 image_counter = 1

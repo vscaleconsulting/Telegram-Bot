@@ -9,7 +9,7 @@ import random
 phone = None
 phone_id = None
 api_key = ""
-
+country = "21"
 
 def cancel_activation():
     global api_key
@@ -98,12 +98,15 @@ if __name__=='__main__':
     file = open("session_ids.csv","a",encoding='utf8',newline="")
     session_name = None
     
+    
     for i in range(40): 
         session_name = f"botsession_{random.randint(0,10000)}{random.randint(0,10000)}"
         if(not get_number()):
             continue 
         client = get_client(session_name)
-        send_code(phone,client)
+        if(send_code(phone,client)=='ban'):
+            cancel_activation()
+            continue
         code = get_code()
         if(code!=None):
             print(code)
